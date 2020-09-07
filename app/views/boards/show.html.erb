@@ -7,7 +7,12 @@
   </div>
 </div>
 
-<div class="card">
+<!-- パーシャルの呼び出し -->
+<!-- <%= render partial: 'board', object: @board %> -->
+<%= render @board %> <!-- どちらの書き方でもOK -->
+
+<!-- テーブルに保存したレコードを取得して表示 -->
+<!-- <div class="card">
   <div class="card-header">
     <h4><%= @board.title %></h4>
   </div>
@@ -15,4 +20,4 @@
     <p class="card-text"><%= simple_format(@board.body) %></p>
     <p class="text-right font-weight-bold mr-10"><%= @board.name %></p>
   </div>
-</div>
+</div> -->

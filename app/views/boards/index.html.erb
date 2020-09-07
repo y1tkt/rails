@@ -17,6 +17,7 @@
     </tr>
   </thead>
   <tbody>
+    <!-- テーブルに保存したレコードを取得して一覧表示 -->
     <% @boards.each do |board| %>
       <tr>
         <td><%= board.id %></td>
@@ -27,6 +28,8 @@
         <td><%= link_to '詳細', board, class: 'btn btn-outline-dark' %></td>
       </tr>
     <% end %>
+
+    <!-- ダミーレコードをベタ打ち -->
     <!-- <tr>
       <th>1</th>
       <td>雑談掲示板</td>

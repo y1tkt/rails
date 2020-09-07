@@ -5,7 +5,12 @@
     <%= link_to '一覧', boards_path, class: 'btn btn-outline-dark' %>
   </div>
 </div>
-<%= form_for @board do |f| %>
+
+<!-- パーシャルの呼び出し -->
+<%= render partial: 'form', locals: { board: @board} %>
+
+<!-- モデルオブジェクトを利用したフォームの作成 -->
+<!-- <%= form_for @board do |f| %>
   <div class="form-group">
     <%= f.label :name, '名前' %>
     <%= f.text_field :name, class: 'form-control' %>
@@ -19,7 +24,9 @@
     <%= f.text_area :body, class: 'form-control', rows: 10 %>
   </div>
   <%= f.submit '保存', class: 'btn btn-primary' %>
-<% end %>
+<% end %> -->
+
+<!-- ダミーフォームをベタ打ち -->
 <!-- <form>
   <div class="form-group">
     <label for="name">名前</label>
