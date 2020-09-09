@@ -7,6 +7,11 @@
   </div>
 </div>
 
+<!-- flashメッセージの表示 -->
+<% if flash[:notice] %>
+  <div class="alert alert-primary"><%= flash[:notice] %></div>
+<% end %>
+
 <!-- パーシャルの呼び出し -->
 <!-- <%= render partial: 'board', object: @board %> -->
 <%= render @board %> <!-- どちらの書き方でもOK -->
