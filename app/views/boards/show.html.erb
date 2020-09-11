@@ -15,6 +15,7 @@
 <!-- パーシャルの呼び出し -->
 <!-- <%= render partial: 'board', object: @board %> -->
 <%= render @board %> <!-- どちらの書き方でもOK -->
+<%= render partial: 'comment_form', locals: { comment: @comment } %>
 
 <!-- テーブルに保存したレコードを取得して表示 -->
 <!-- <div class="card">
