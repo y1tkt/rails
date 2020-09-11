@@ -1,17 +1,21 @@
 # == Schema Information
 #
-# Table name: boards
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  body       :text(65535)
-#  name       :string(255)
-#  title      :string(255)
+#  comment    :text(65535)      not null
+#  name       :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  board_id   :integer
+#
+# Foreign Keys
+#
+#  fk_rails_...  (board_id => boards.id)
 #
 require 'test_helper'
 
-class BoardTest < ActiveSupport::TestCase
+class CommentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
