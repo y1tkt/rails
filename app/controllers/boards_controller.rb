@@ -24,7 +24,10 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @comment = @board.comments.new
+    # newのしかたを修正。
+    # 修正前の書き方では、@board.commentsを一覧表示時、ここでnewした未保存の空のコメントも表示されてしまうため。
+    # @comment = @board.comments.new
+    @comment = Comment.new(board_id: @board.id)
   end
 
   def edit

@@ -12,10 +12,17 @@
   <div class="alert alert-primary"><%= flash[:notice] %></div>
 <% end %>
 
-<!-- パーシャルの呼び出し -->
+<!-- パーシャル（掲示板表示用）の呼び出し -->
 <!-- <%= render partial: 'board', object: @board %> -->
 <%= render @board %> <!-- どちらの書き方でもOK -->
-<%= render partial: 'comment_form', locals: { comment: @comment } %>
+
+<div class="p-comment__list">
+  <div class="p-comment__listTitle">コメント</div>
+  <%= render @board.comments %>
+</div>
+
+<!-- パーシャル（コメント書き込み用）の呼び出し -->
+<%= render partial: 'comments/form', locals: { comment: @comment } %>
 
 <!-- テーブルに保存したレコードを取得して表示 -->
 <!-- <div class="card">
