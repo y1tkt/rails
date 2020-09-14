@@ -1,10 +1,5 @@
-<% if flash[:error_messages] %>
-  <div class="alert alert-danger">
-    <% flash[:error_messages].each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </div>
-<% end %>
+<!-- パーシャル（エラーメッセージ表示用）の呼び出し -->
+<%= render 'shared/error_messages' %>
 
 <%= form_for board do |f| %>
   <div class="form-group">
