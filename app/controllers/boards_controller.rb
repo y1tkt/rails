@@ -3,7 +3,8 @@ class BoardsController < ApplicationController
 
   def index
     # @boards = Board.all
-    @boards = Board.page(params[:page])
+    @boards = params[:tag_id].present? ? Tag.find(params[:tag_id]).boards : Board.all
+    @boards = @boards.page(params[:page])
   end
 
   def new
@@ -50,14 +51,14 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    @board.delete
+    @board.destroy
     redirect_to boards_path, flash: {notice: "「#{@board.title}」の掲示板が削除されました"}
   end
 
   private
 
   def board_params
-    params.require(:board).permit(:name, :title, :body)
+    params.require(:board).permit(:name, :title, :body, tag_ids: [])
   end
 
   def set_target_board
