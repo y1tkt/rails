@@ -11,11 +11,17 @@
         <%= header_link_item('ホーム', root_path) %>
       </li>
       <li class="nav-item">
-        <%= header_link_item('掲示板一覧', boards_path) %>
+        <% if @current_user %>
+          <%= header_link_item('掲示板一覧', boards_path) %>
+        <% end %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ユーザー
+          <% if @current_user %>
+            <%= @current_user.name %>
+          <% else %>
+            ログイン
+          <% end %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <% if @current_user %>
