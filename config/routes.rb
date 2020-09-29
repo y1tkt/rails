@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'mypage' => 'users#me'
   post 'login' => 'sessions#create'
+  get 'login' => 'users#login'
   delete 'logout' => 'sessions#destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
