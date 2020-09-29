@@ -8,6 +8,12 @@
     </p>
     <hr class="my-4">
     <p>produced by y1tkt.</p>
-    <a class="btn btn-light btn-lg" href="#" role="button">さっそく始める</a>
+    <% if @current_user %>
+      <%= link_to 'マイページへ', mypage_path, class: 'btn btn-light' %>
+    <% else %>
+      <%= link_to 'ログイン', 'login', class: 'btn btn-light', role: 'button' %>
+      <span class="pl-3 pr-3">or</span>
+      <%= link_to '新規登録', new_user_path, class: 'btn btn-light', role: 'button' %>
+    <% end %>
   </div>
 </div>
